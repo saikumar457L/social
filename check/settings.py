@@ -146,6 +146,7 @@ AUTHENTICATION_BACKENDS = [
     "accounts.authentication.EmailAuthBackend",
     "social_core.backends.facebook.FacebookOAuth2",
     "social_core.backends.twitter.TwitterOAuth",
+    "social_core.backends.google.GoogleOAuth2"
 
 
 ]
@@ -156,3 +157,6 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
 
 SOCIAL_AUTH_TWITTER_KEY = "tvvGBZ87J8OG2bfOJeVYQptkO"
 SOCIAL_AUTH_TWITTER_SECRET = "vTFMMcZ3FuBARIciYXhnBBMJzXPTdgjY4PbXgfZ9W3K4Ata9Dn"
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "1031071949586-9b13a5id44hbge9jnnp34p1n3q9c7afk.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "V4SreDBwT2VUzcVj82xIRSNU"
