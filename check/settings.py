@@ -148,6 +148,8 @@ AUTHENTICATION_BACKENDS = [
     "social_core.backends.twitter.TwitterOAuth",
     "social_core.backends.google.GoogleOAuth2",
     "social_core.backends.github.GithubOAuth2",
+    "social_core.backends.instagram.InstagramOAuth2",
+    "social_core.backends.linkedin.LinkedinOAuth2",
 
 
 ]
@@ -164,3 +166,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "V4SreDBwT2VUzcVj82xIRSNU"
 
 SOCIAL_AUTH_GITHUB_KEY = "Iv1.59698931cdac9392"
 SOCIAL_AUTH_GITHUB_SECRET = "274a13a2cf10d794c1c2cc02b9dd41ce897db409"
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = "77s4scs6jp0ocu"
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = "zbRkz4Ql4fpBUPQb"
