@@ -1,0 +1,73 @@
+{% extends 'site/base.html' %}
+
+{% block title %}Create acccunt {% endblock title %}
+
+{% block javascript %}
+
+  <script>
+    $("#user_register").change(function() {
+      var form = $(this).closest('form');
+
+      console.log("user-form initilised....");
+      console.log($(this).val());
+
+      $.ajax({
+        url : form.attr('data-validate-url'),
+
+        data : form.serialize(),
+
+        dataType : 'json',
+
+        success: function (data) {
+          if (data.is_taken) {
+            $("#pass").fadeOut(500);
+            $("#warn-user").fadeIn(500);
+          }
+          else if (data.mail_taken) {
+            $("#pass").fadeOut(500);
+            $("#warn-mail").fadeIn(500);
+          }
+          else {
+            $("#warn-user").fadeOut(500);
+            $("#warn-mail").fadeOut(500);
+            $("#pass").fadeIn(500);
+          }
+        }
+      });
+    });
+
+
+  </script>
+
+
+{% endblock %}
+
+{% block content %}
+
+  <h2>Create New Account</h2><hr>
+  <p>Fill the form to create account.</p>
+  <p id="warn-user" style="display:none;color:red;">This user name is already taken</p>
+  <p id="warn-mail" style="display:none;color:red;">The given mail is already taken</p>
+  <p id="pass" style="display:none;color:green;">You are ready</p>
+
+  {% if form.errors %}
+
+    <p>Something went wrong</p>
+
+    <form id="user_register" class="" action="." method="post" data-validate-url = "{% url 'validate_user_register' %}">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      <button type="submit" name="button">Create Account</button>
+    </form>
+
+  {% else %}
+
+    <form id="user_register" class="" action="." method="post" data-validate-url = "{% url 'validate_user_register' %}">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      <button type="submit" name="button">Create Account</button>
+    </form>
+
+  {% endif %}
+
+{% endblock content %}

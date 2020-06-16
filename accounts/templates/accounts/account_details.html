@@ -1,0 +1,52 @@
+{% extends 'site/base.html' %}
+
+{% block title %}Account Details {% endblock title %}
+
+
+{% block javascript %}
+  <script>
+    var model = document.getElementById("profile-photo-view-full");
+    var img = document.getElementById("profile-photo-view");
+    var modelimg = document.getElementById("profile-photo-view-img");
+    var caption = document.getElementById("caption");
+
+    img.onclick = function () {
+        model.style.display = "block";
+        modelimg.src=this.src;
+        caption.innerHTML=this.alt;
+
+    }
+
+    var imgclose = document.getElementById("close");
+    imgclose.onclick = function() {
+      model.style.display = "none";
+    }
+
+  </script>
+{% endblock %}
+
+
+{% block content %}
+
+  <h1>Account Details</h1> <a href="{% url 'update_profile' %}" target="_blank"> Update Details</a> <hr>
+
+  <div class="profile-photo">
+    <img class="profile-photo-view" id="profile-photo-view" src="{{user.profile.photo.url}}" alt="{{user.username}}" width="300px" height="200px">
+  </div>
+
+  <div class="profile-photo-view-full" id="profile-photo-view-full">
+    <span id="close" class="close">&times;</span>
+    <img id="profile-photo-view-img" class="profile-photo-view-img">
+    <div id="caption"></div>
+  </div>
+
+  <div class="user-details-list">
+    <li>Username: {{user.username}}</li>
+    <li>Firstname: {{user.first_name}}</li>
+    <li>Lastname: {{user.last_name}}</li>
+    <li>Mail: {{user.email}}</li>
+    <li>Date of birth: {{user.profile.date_of_birth}}</li>
+    <li>Gender: {{user.profile.gender}}</li>
+  </div>
+
+{% endblock content %}

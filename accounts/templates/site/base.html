@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/base.css' %}">
+  </head>
+  <body>
+    <header>
+      <div class="site-urls">
+        <ul>
+          <li>
+            <a href="{% url 'home' %}">Account</a>
+          </li>
+
+          <li>
+            <a href="#">Home</a>
+          </li>
+
+          <li>
+            <a href="#">About</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="authentication-urs">
+        {% if user.is_authenticated %}
+          <p>Hi! {{user.username}} <span id='logout'><a href="{% url 'logout' %}">Logout</a></span> <span  id="password_change"><a href="{% url 'password_change' %}">Change password</a></span></p>
+        {% else %}
+          <p> <a href="{% url 'login' %}">Login</a></p>
+        {% endif %}
+      </div>
+    </header>
+
+    {% if messages %}
+    <ul id='messages'>
+      {% for message in messages %}
+        <li>
+          {{message|safe}}
+          <a id="close" href="#">X</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="block-content">
+      {% block content %}
+      {% endblock content %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'accounts/js/app.js' %}"> </script>
+    {% block javascript %}
+
+    {% endblock %}
+
+  </body>
+</html>

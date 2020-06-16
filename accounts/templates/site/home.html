@@ -1,0 +1,18 @@
+{% extends 'site/base.html' %}
+
+{% block title %}Accounts Home {% endblock title %}
+
+
+{% block content %}
+
+  {% if user.is_authenticated %}
+    <p>Here your account Details</p> <hr>
+    <a href="{% url 'update_profile' %}" target="_blank">Update profile</a>
+    <a href="{% url 'account_details' %}">Account Details</a>
+  {% else %}
+    <h2>You must login to see your account details</h2> <hr>
+    <a href="{% url 'login' %}">Login</a>
+  {% endif %}
+
+
+{% endblock content %}

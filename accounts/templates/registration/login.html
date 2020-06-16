@@ -1,0 +1,42 @@
+{% extends 'site/base.html' %}
+
+{% block title %}Login to your Account {% endblock title %}
+
+{% block content %}
+
+  <h3>Login to your account</h3> <hr>
+  {% if form.errors %}
+    <p>Something went wrong. Please try again.</p>
+    <form class="login-form" action="." method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" name="button">Login</button> <a href="{% url 'password_reset' %}">Forgot password</a> | <a href="{% url 'create_account' %}">Create account</a>
+    </form>
+
+    <div class="social-auth">
+      <ul>
+        <li>
+          <a href="{% url 'social:begin' 'facebook' %}">Sign in with Facebook</a>
+        </li>
+      </ul>
+    </div>
+
+  {% else %}
+
+    <form class="login-form" action="." method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" name="button">Login</button> <a href="{% url 'password_reset' %}">Forgot password</a> | <a href="{% url 'create_account' %}">Create account</a>
+    </form>
+
+    <div class="social-auth">
+      <ul>
+        <li>
+          <a href="{% url 'social:begin' 'facebook' %}">Sign in with Facebook</a>
+        </li>
+      </ul>
+    </div>
+
+  {% endif %}
+
+{% endblock content %}
