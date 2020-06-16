@@ -145,6 +145,7 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "accounts.authentication.EmailAuthBackend",
     "social_core.backends.facebook.FacebookOAuth2",
+    "social_core.backends.twitter.TwitterOAuth",
 
 
 ]
@@ -152,3 +153,6 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_FACEBOOK_KEY = "716764928893534"
 SOCIAL_AUTH_FACEBOOK_SECRET = "3ce3b456e3c88b50a66a22e49af9c5f5"
 SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
+
+SOCIAL_AUTH_TWITTER_KEY = "tvvGBZ87J8OG2bfOJeVYQptkO"
+SOCIAL_AUTH_TWITTER_SECRET = "vTFMMcZ3FuBARIciYXhnBBMJzXPTdgjY4PbXgfZ9W3K4Ata9Dn"
