@@ -89,10 +89,7 @@
       <h3>Image liked by others</h3> <hr>
       {% for user in image.users_like.all %}
         <div class="liked-user-info">
-          {% thumbnail user.profile.photo "300" as im %}
-            <img src="{{im.url}}" alt="{{user.first_name}}" width="70px" height="70px">
-          {% endthumbnail %}
-          
+          <img src="{{user.profile.photo.url}}" alt="{{user.first_name}}" width="70px" height="70px">
           <p>{{user.first_name}}</p>
         </div>
       {% empty %}
