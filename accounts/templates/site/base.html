@@ -16,12 +16,21 @@
           </li>
 
           <li>
-            <a href="#">Home</a>
+            <a href="{% url 'home:home_page' %}">Home</a>
           </li>
 
           <li>
             <a href="#">About</a>
           </li>
+
+          <li>
+            <a href="{% url 'images:list' %}">Images</a>
+          </li>
+
+          <li>
+            <a href="#">People</a>
+          </li>
+
         </ul>
       </div>
 
@@ -52,9 +61,34 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'accounts/js/app.js' %}"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     {% block javascript %}
 
     {% endblock %}
+
+    <script>
+      var csrftoken = Cookies.get('csrftoken');
+
+      function csrfSafeMethod(method) {
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+
+      }
+
+      $.ajaxSetup({
+        beforeSend: function(xhr,settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken",csrftoken);
+          }
+        }
+      });
+
+
+      $(document).ready(function() {
+        {% block domready %}
+
+        {% endblock %}
+      });
+    </script>
 
   </body>
 </html>

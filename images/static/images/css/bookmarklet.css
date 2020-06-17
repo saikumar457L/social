@@ -1,0 +1,9 @@
+.close {
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  transition: 0.3s;
+  position: absolute;
+  right: 35px;
+
+}

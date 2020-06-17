@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "346fcf8748a99aa76a82642068def0e9106de35d23b2129c9f23fce5a1466cca"
+            "sha256": "9e41b36d1ed44c954f67e4ef1e1eb14cf493e9667a43722c251deb795b30d681"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,11 +18,11 @@
     "default": {
         "asgiref": {
             "hashes": [
-                "sha256:783254c9ec6f914f671919bbcef4346d4e57866bd7ed988ae79f881bbc0a9be8",
-                "sha256:a46c83b7d46212ec937e9ddb571cda2b1384b3d02f7edde9372e2778d1782d38"
+                "sha256:7ea1922cfd63c4ac7687069f8bb0e7768ab9b7fc78ff227577d4240b52d6cb7a",
+                "sha256:f803d8b4962cc338d48a72fa498c52f913b160eb16712e2ecdf2a81904daead9"
             ],
             "markers": "python_version >= '3.5'",
-            "version": "==3.2.8"
+            "version": "==3.2.9"
         },
         "certifi": {
             "hashes": [
@@ -235,6 +235,14 @@
                 "sha256:4a3cdf69c449b235cdabd54a1be7ba3722611297e69fded52e3584b1a990af25"
             ],
             "version": "==3.3.3"
+        },
+        "sorl-thumbnail": {
+            "hashes": [
+                "sha256:66771521f3c0ed771e1ce8e1aaf1639ebff18f7f5a40cfd3083da8f0fe6c7c99",
+                "sha256:7162639057dff222a651bacbdb6bd6f558fc32946531d541fc71e10c0167ebdf"
+            ],
+            "index": "pypi",
+            "version": "==12.6.3"
         },
         "sqlparse": {
             "hashes": [

@@ -33,6 +33,9 @@ ALLOWED_HOSTS = ["*","saikumar.com","localhost","127.0.0.1","9029b5878a2e.ngrok.
 INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "social_django",
+    "images.apps.ImagesConfig",
+    "homesite.apps.HomesiteConfig",
+    "sorl.thumbnail",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,7 +133,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR,"media/")
 
 LOGIN = "login"
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home:home_page'
 LOGOUT = "logout"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
